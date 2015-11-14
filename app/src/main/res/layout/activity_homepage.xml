@@ -30,34 +30,27 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button" />
+            android:text="Contact1"
+            android:id="@+id/contact1" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2" />
+            android:text="contact2"
+            android:id="@+id/contact2" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button3" />
+            android:text="contact3"
+            android:id="@+id/contact3" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="SOS"
-            android:id="@+id/button7" />
-    </LinearLayout>
+        android:text="SOS"
+        android:id="@+id/button7" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -83,6 +76,13 @@
             android:text="New Button"
             android:id="@+id/button6" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="367dp"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:id="@+id/send"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
