@@ -1,26 +1,24 @@
 package heisenbug.helpmeout;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class Homepage extends Activity {
+public class SettingsPage extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homepage);
-
+        setContentView(R.layout.activity_settings_page);
     }
 
 
     @Override
-      public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_homepage, menu);
+        getMenuInflater().inflate(R.menu.menu_settings_page, menu);
         return true;
     }
 
@@ -37,15 +35,5 @@ public class Homepage extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-    public void doOtherButton(View view) {
-        Intent intent = new Intent(this, OtherActionsPage.class);
-        startActivity(intent);
-
-
-    }
-    public void doMainSettingsButton(View view) {
-        Intent intent = new Intent(this, SettingsPage.class);
-        startActivity(intent);
     }
 }

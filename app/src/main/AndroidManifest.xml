@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SettingsPage"
+            android:label="@string/title_activity_settings_page" >
+        </activity>
+        <activity
+            android:name=".OtherActionsPage"
+            android:label="@string/title_activity_other_actions_page" >
+        </activity>
     </application>
 
 </manifest>
