@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 
 public class Homepage extends Activity {
@@ -13,7 +15,17 @@ public class Homepage extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-
+        LinearLayout layout = (LinearLayout) findViewById(R.id.contacts_main_page);
+        final Button superCoolTestButton = new Button(this);
+        superCoolTestButton.setText("1");
+        superCoolTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = superCoolTestButton.getText().toString();
+                superCoolTestButton.setText(s+"d");
+            }
+        });
+        layout.addView(superCoolTestButton);
     }
 
 
@@ -47,5 +59,10 @@ public class Homepage extends Activity {
     public void doMainSettingsButton(View view) {
         Intent intent = new Intent(this, SettingsPage.class);
         startActivity(intent);
+    }
+    public void onWindowFocusChanged(boolean hasFocus) {
+        if (hasFocus) {
+            // do stuff to
+        }
     }
 }
