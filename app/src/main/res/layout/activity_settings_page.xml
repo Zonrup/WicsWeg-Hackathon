@@ -1,9 +1,73 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="heisenbug.helpmeout.SettingsPage">
 
-</RelativeLayout>
+    <Button
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:text="SET UP PROFILE"
+        android:id="@+id/button_settings_profile"
+        android:clickable="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="80dp" />
+
+    <Button
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:text="SET UP HOMEPAGE"
+        android:id="@+id/button_settings_homepage"
+        android:clickable="true"
+        android:layout_below="@+id/button_settings_profile"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:text="SET FACES"
+        android:id="@+id/button_settings_faces"
+        android:clickable="true"
+        android:layout_below="@+id/button_settings_homepage"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_settings_notifications"
+        android:text="NOTIFICATIONS SETTING"
+        android:clickable="true"
+        android:layout_below="@+id/button_settings_faces"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:text="DEFAULT MESSAGES"
+        android:id="@+id/button_settings_messages"
+        android:clickable="true"
+        android:layout_below="@+id/button_settings_notifications"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp" />
+
+    <Button
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:text="Set up SOS"
+        android:id="@+id/button_settings_sos"
+        android:layout_alignParentStart="false"
+        android:clickable="true"
+        android:layout_below="@+id/button_settings_messages"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp" />
+
+</LinearLayout>
