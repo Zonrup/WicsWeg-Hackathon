@@ -8,6 +8,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
@@ -21,10 +22,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Homepage extends Activity {
+    public static String FILENAME = "helpmeoutdata";
     static boolean isRunning = false;
     int nocolor = Color.argb(0,0,0,0);
     Homepage homepage = this;
@@ -89,14 +99,18 @@ public class Homepage extends Activity {
             @Override
             public void onClick(View v) {
                 boolean messageSent = false;
+                String toastMessage = "Message sent without location data";
                 if (message != null) {
                     if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                         Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                        message += ("\nLast Known Location: https://maps.google.com/maps?&z=13&q=" +
-                                locationGPS.getLatitude() + "+" +
-                                locationGPS.getLongitude() + "&ll=" +
-                                locationGPS.getLatitude() + "+" +
-                                locationGPS.getLongitude() );
+                        if (locationGPS!=null) {
+                            message += ("\nLast Known Location: https://maps.google.com/maps?&z=13&q=" +
+                                    locationGPS.getLatitude() + "+" +
+                                    locationGPS.getLongitude() + "&ll=" +
+                                    locationGPS.getLatitude() + "+" +
+                                    locationGPS.getLongitude());
+                            toastMessage = "Message sent successfully";
+                        }
                     }
                     for (int i = 0; i < 4; i++) {
                         String s = targets.get(i);
@@ -107,7 +121,7 @@ public class Homepage extends Activity {
                         targets.remove(i);
                         targets.add(i,"");
                     }
-                    Toast toast = Toast.makeText(homepage,"Message sent",Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(homepage,toastMessage,Toast.LENGTH_SHORT);
                     toast.show();
                     message = null;
                 }
@@ -190,9 +204,23 @@ public class Homepage extends Activity {
         sosButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String target = "tel:+16044408738";
                 Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:+16044408738"));
+                intent.setData(Uri.parse(target));
                 startActivity(intent);
+                /*try {
+                    BufferedReader fos = new BufferedReader( new InputStreamReader(openFileInput(FILENAME)));
+                    target+=fos.readLine();
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse(target));
+                    startActivity(intent);
+                } catch (FileNotFoundException e) {
+                    Toast toast = Toast.makeText(homepage,"Set up SOS number please",Toast.LENGTH_SHORT);
+                    toast.show();
+                } catch (IOException e) {
+                    Toast toast = Toast.makeText(homepage,"Number read failed",Toast.LENGTH_SHORT);
+                    toast.show();
+                }*/
             }
         });
     }
