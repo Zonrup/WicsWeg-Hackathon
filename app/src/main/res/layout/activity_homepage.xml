@@ -8,15 +8,33 @@
     android:id="@+id/homepage_main_layout"
     android:weightSum="1">
 
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/main_page_misc">
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:text="@string/button_settings"
+        android:id="@+id/mainPageSettingsButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="doMainSettingsButton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
         android:text="@string/button_other_actions"
         android:id="@+id/otherButton"
         android:onClick="doOtherButton"
         android:layout_gravity="end" />
-
+</LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -108,17 +126,5 @@
         android:src="@drawable/send"
         android:padding="0dp"
         android:scaleType="fitXY"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_settings"
-        android:id="@+id/mainPageSettingsButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="doMainSettingsButton"
-        android:layout_gravity="right" />
 
 </LinearLayout>
