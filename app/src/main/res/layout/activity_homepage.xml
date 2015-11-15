@@ -20,9 +20,7 @@
         android:layout_height="wrap_content"
         android:text="@string/button_settings"
         android:id="@+id/mainPageSettingsButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:background="@android:drawable/btn_default"
         android:onClick="doMainSettingsButton" />
 
     <Button
@@ -33,6 +31,7 @@
         android:text="@string/button_other_actions"
         android:id="@+id/otherButton"
         android:onClick="doOtherButton"
+        android:background="@android:drawable/btn_default"
         android:layout_gravity="end" />
 </LinearLayout>
 
@@ -41,7 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/contacts_main_page">
+        android:id="@+id/contacts_main_page"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <Button
             android:layout_width="wrap_content"
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/sos"
             android:padding="0dp"
-            android:id="@+id/button7"
+            android:id="@+id/sosButton"
             android:layout_weight="0.09"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
@@ -87,7 +88,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
 
         <ImageButton
             android:layout_width="0dp"
@@ -118,13 +121,21 @@
     </LinearLayout>
 
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        android:id="@+id/send"
-        android:src="@drawable/send"
-        android:padding="0dp"
-        android:scaleType="fitXY"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:id="@+id/send"
+            android:src="@drawable/send"
+            android:padding="0dp"
+
+            android:scaleType="fitXY"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
 </LinearLayout>
