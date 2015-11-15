@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Created by Waez on 2015-11-14.
  */
-
+//
 public class NotificationReceiverActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
