@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="heisenbug.helpmeout" >
     <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-sdk android:minSdkVersion="21"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -24,6 +26,14 @@
         <activity
             android:name=".OtherActionsPage"
             android:label="@string/title_activity_other_actions_page" >
+        </activity>
+        <activity
+            android:name=".CreateNotificationActivity"
+            android:label="CreateNotificationActivity">
+        </activity>
+        <activity
+            android:name=".NotificationReceiverActivity"
+            android:label="NotificationReceiverActivity">
         </activity>
     </application>
 </manifest>

@@ -16,9 +16,10 @@ public class CreateNotificationActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+        createNotification();
     }
 
-    public void createNotification(View view) {
+    public void createNotification() {
         // Prepare intent which is triggered if the
         // notification is selected
         Intent intent = new Intent(this, NotificationReceiverActivity.class);
@@ -29,13 +30,13 @@ public class CreateNotificationActivity extends Activity {
         Notification noti = new Notification.Builder(this)
                 .setContentTitle("HelpMeOut")
                 .setContentText("Press to open HelpMeOut app.")
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.telephone)
                 .setContentIntent(pIntent)
-                .addAction(R.drawable.ic_launcher, "Open", pIntent)
+                .setColor(0xFFFF0000)
                 .build();
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         // hide the notification after its selected
-        //noti.flags |= Notification.FLAG_AUTO_CANCEL;
+        noti.flags |= Notification.FLAG_NO_CLEAR;
 
         notificationManager.notify(0, noti);
 
