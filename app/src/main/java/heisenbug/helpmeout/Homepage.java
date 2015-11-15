@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class Homepage extends Activity {
-    PorterDuff.Mode mode = PorterDuff.Mode.SRC_ATOP;
+    int nocolor = Color.argb(0,0,0,0);
     Homepage homepage = this;
     SmsManager smsManager;
     String targetAddress = null;
@@ -36,38 +37,33 @@ public class Homepage extends Activity {
         final Button contact2 = (Button) findViewById(R.id.contact2);
         final Button contact1 = (Button) findViewById(R.id.contact1);
         final Button contact3 = (Button) findViewById(R.id.contact3);
+        final Button contact4 = (Button) findViewById(R.id.contact4);
         final ImageButton sendButton = (ImageButton) findViewById(R.id.send);
         phoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message = "Call me maybe!";
-                Drawable d = getResources().getDrawable(R.drawable.telephonejpg);
-                d.setColorFilter(0x00FF00,mode);
-                phoneButton.setImageDrawable(d);
-                foodButton.setImageDrawable(getResources().getDrawable(R.drawable.fries));
-                handButton.setImageDrawable(getResources().getDrawable(R.drawable.hand));
+                phoneButton.setColorFilter(Color.argb(127, 0, 255, 0));
+                foodButton.setColorFilter(nocolor);
+                handButton.setColorFilter(nocolor);
             }
         });
         foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message = "Food I need!";
-                Drawable d = getResources().getDrawable(R.drawable.fries);
-                d.setColorFilter(0x00FF00,mode);
-                foodButton.setImageDrawable(d);
-                phoneButton.setImageDrawable(getResources().getDrawable(R.drawable.telephonejpg));
-                handButton.setImageDrawable(getResources().getDrawable(R.drawable.hand));
+                foodButton.setColorFilter(Color.argb(127,0,255,0));
+                phoneButton.setColorFilter(nocolor);
+                handButton.setColorFilter(nocolor);
             }
         });
         handButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 message = "I need a hand!";
-                Drawable d = getResources().getDrawable(R.drawable.hand);
-                d.setColorFilter(0x00FF00,mode);
-                handButton.setImageDrawable(d);
-                phoneButton.setImageDrawable(getResources().getDrawable(R.drawable.telephonejpg));
-                foodButton.setImageDrawable(getResources().getDrawable(R.drawable.fries));
+                handButton.setColorFilter(Color.argb(127,0,255,0));
+                phoneButton.setColorFilter(nocolor);
+                foodButton.setColorFilter(nocolor);
             }
         });
         sendButton.setOnClickListener(new View.OnClickListener() {
@@ -90,12 +86,13 @@ public class Homepage extends Activity {
                     Toast toast = Toast.makeText(homepage,"Message sent",Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                phoneButton.setImageDrawable(getResources().getDrawable(R.drawable.telephonejpg));
-                foodButton.setImageDrawable(getResources().getDrawable(R.drawable.fries));
-                handButton.setImageDrawable(getResources().getDrawable(R.drawable.hand));
+                phoneButton.setColorFilter(nocolor);
+                handButton.setColorFilter(nocolor);
+                foodButton.setColorFilter(nocolor);
                 contact1.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
                 contact2.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
                 contact3.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+                contact4.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
             }
         });
         contact1.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +102,7 @@ public class Homepage extends Activity {
                 contact1.setBackground(getResources().getDrawable(R.drawable.selected_button_background));
                 contact2.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
                 contact3.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+                contact4.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
             }
         });
         contact2.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +112,7 @@ public class Homepage extends Activity {
                 contact1.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
                 contact2.setBackground(getResources().getDrawable(R.drawable.selected_button_background));
                 contact3.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+                contact4.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
             }
         });
         contact3.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +122,17 @@ public class Homepage extends Activity {
                 contact1.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
                 contact2.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
                 contact3.setBackground(getResources().getDrawable(R.drawable.selected_button_background));
+                contact4.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+            }
+        });
+        contact4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                targetAddress = "+16044408738";
+                contact1.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+                contact2.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+                contact3.setBackground(getResources().getDrawable(android.R.drawable.btn_default));
+                contact4.setBackground(getResources().getDrawable(R.drawable.selected_button_background));
             }
         });
     }
